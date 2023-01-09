@@ -18,8 +18,8 @@ RUN cargo init
 COPY Cargo.toml Cargo.lock ./
 
 # Building only dependencies
-RUN cargo build --release --bin ${APP_NAME} --tests \
-    && rm src/*.rs target/release/deps/${APP_NAME}*
+RUN cargo build --release --bin protohackers --tests \
+    && rm src/*.rs target/release/deps/protohackers*
 
 FROM deps_builder as inspections
 
@@ -46,4 +46,4 @@ USER app
 # Get binary from builder
 COPY --from=builder --chown=app  ${FOLDER}/target/release/${APP_NAME} ./app
 
-CMD ["./app"]
+CMD ./app

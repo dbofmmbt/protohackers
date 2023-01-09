@@ -1,20 +1,20 @@
-# fly.toml file generated for echo-service on 2023-01-06T10:28:45-03:00
+# fly.toml file generated for dbofmmbt on 2023-01-08T23:40:35-03:00
 
-app = "protohackers"
+app = "dbofmmbt"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [[services]]
-internal_port = 7070
-protocol = "tcp"
-http_checks = []
-script_checks = []
+  http_checks = []
+  internal_port = 7070
+  protocol = "tcp"
+  script_checks = []
 
-[[services.tcp_checks]]
-grace_period = "1s"
-interval = "5s"
-timeout = "1s"
+  [[services.ports]]
+    port = 7070
 
-[[services.ports]]
-port = 7070
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "5s"
+    timeout = "1s"
